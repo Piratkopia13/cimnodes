@@ -91,6 +91,10 @@ CIMGUI_API void imnodes_EditorContextMoveToNode(const int node_id)
 {
     return imnodes::EditorContextMoveToNode(node_id);
 }
+CIMGUI_API ImGuiContext* imnodes_GetNodeEditorImGuiContext()
+{
+    return imnodes::GetNodeEditorImGuiContext();
+}
 CIMGUI_API ImNodesIO* imnodes_GetIO()
 {
     return &imnodes::GetIO();
@@ -122,6 +126,22 @@ CIMGUI_API void imnodes_EndNodeEditor()
 CIMGUI_API void imnodes_MiniMap(const float minimap_size_fraction,const ImNodesMiniMapLocation location,const ImNodesMiniMapNodeHoveringCallback node_hovering_callback,const ImNodesMiniMapNodeHoveringCallbackUserData node_hovering_callback_data)
 {
     return imnodes::MiniMap(minimap_size_fraction,location,node_hovering_callback,node_hovering_callback_data);
+}
+CIMGUI_API float imnodes_EditorContextGetZoom()
+{
+    return imnodes::EditorContextGetZoom();
+}
+CIMGUI_API void imnodes_EditorContextSetZoom(float zoom_scale,ImVec2 zoom_center)
+{
+    return imnodes::EditorContextSetZoom(zoom_scale,zoom_center);
+}
+CIMGUI_API void imnodes_ConvertToEditorContextSpace(ImVec2 *pOut,const ImVec2 screen_space_pos)
+{
+    *pOut = imnodes::ConvertToEditorContextSpace(screen_space_pos);
+}
+CIMGUI_API void imnodes_ConvertFromEditorContextSpace(ImVec2 *pOut,const ImVec2 screen_space_pos)
+{
+    *pOut = imnodes::ConvertFromEditorContextSpace(screen_space_pos);
 }
 CIMGUI_API void imnodes_PushColorStyle(ImNodesCol item,unsigned int color)
 {
